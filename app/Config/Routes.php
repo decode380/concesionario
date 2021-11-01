@@ -51,3 +51,11 @@ if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 }
 
 $routes->post('/val_login', 'LoginController::val_login_controller');
+$routes->get('/index', 'IndexController::index');
+$routes->post('/logout', 'LoginController::logout_controller');
+$routes->post('/val_car_repeat', 'IndexController::validate_car_repeat_controller');
+$routes->post('/insert-car', 'IndexController::insert_car_controller');
+$routes->get('/switch_rol', 'LoginController::switch_rol_controller');
+
+
+
