@@ -78,7 +78,7 @@ session_start(['name'=>'SPM']);
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form class="mt-3 form-two-columns" action="">
+                        <form class="mt-3 form-two-columns form-search-byprice" action="">
                             <div class="form-group">
                                 <label>Precio desde ($)</label>
                                 <input class="form-control form-control-sm" required pattern="[0-9]{7,}" id="price-from-search-byprice">
@@ -87,7 +87,7 @@ session_start(['name'=>'SPM']);
                                 <label>Precio hasta ($)</label>
                                 <input class="form-control form-control-sm" required pattern="[0-9]{7,}" id="price-until-search-byprice">
                             </div>
-                            <div><a class="btn btn-primary" id="btn-search-byprice">Buscar</a></div>
+                            <div><button type="submit" class="btn btn-primary">Buscar</button></div>
                         </form>
                         <table class="table text-center mt-3">
                             <thead>

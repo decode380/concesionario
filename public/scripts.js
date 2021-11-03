@@ -140,7 +140,7 @@ function view_seller_data(firstname, lastname, phone){
     Teléfono: `+ phone);
 }
 
-$('#btn-search-byprice').click(function(e){
+$('.form-search-byprice').submit(function(e){
     e.preventDefault();
     var pricefrom = $('#price-from-search-byprice').val();
     var priceuntil = $('#price-until-search-byprice').val();
