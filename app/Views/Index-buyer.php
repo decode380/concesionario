@@ -11,7 +11,7 @@ session_start(['name'=>'SPM']);
             <h1 class="header-text">Busqueda de automoviles</h1>
             <div>
                 <?php if($_SESSION['usurol'] == 3):?>
-                    <i class="fas fa-user-edit btn-edit-user"></i>
+                    <a href="<?php echo base_url('edit-user');?>"><i class="fas fa-user-edit btn-edit-user"></i></a>
                 <?php endif;?>
                 <i class="fas fa-sign-out-alt btn-logout"></i>
             </div>
@@ -41,13 +41,12 @@ session_start(['name'=>'SPM']);
                     </div>
                     <div class="modal-body">
                         <form class="mt-3 form-two-columns" action="">
-                            <select class="form-control form-control-sm" name="" id="">
-                                <option value="">Campero</option>
-                                <option value="">Automovil</option>
-                                <option value="">Camioneta</option>
-                                <option value="">Otro</option>
+                            <select class="form-control form-control-sm" id="category-search-bycategory">
+                                <?php foreach($categories as $index => $row):?>
+                                    <option value="<?php echo $index;?>"><?php echo $row;?></option>
+                                <?php endforeach;?>
                             </select>
-                            <div><button class="btn btn-primary" type="submit">Buscar</button></div>
+                            <div><a id="btn-search-bycategory" class="btn btn-primary">Buscar</a></div>
                         </form>
                         <table class="table text-center mt-3">
                             <thead>
@@ -58,15 +57,8 @@ session_start(['name'=>'SPM']);
                                 <th>Precio</th>
                                 <th></th>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2016</td>
-                                    <td>Chevrolet</td>
-                                    <td>Rojo</td>
-                                    <td>Nuevo</td>
-                                    <td>25000000</td>
-                                    <td><a href="">Ver datos del vendedor</a></td>
-                                </tr>
+                            <tbody id="table-cars-by-category">
+                                <!-- Table Cars By Category -->
                             </tbody>
                         </table>
                     </div>
@@ -89,13 +81,13 @@ session_start(['name'=>'SPM']);
                         <form class="mt-3 form-two-columns" action="">
                             <div class="form-group">
                                 <label>Precio desde ($)</label>
-                                <input class="form-control form-control-sm" type="text" name="" id="">
+                                <input class="form-control form-control-sm" required pattern="[0-9]{7,}" id="price-from-search-byprice">
                             </div>
                             <div class="form-group">
                                 <label>Precio hasta ($)</label>
-                                <input class="form-control form-control-sm" type="text" name="" id="">
+                                <input class="form-control form-control-sm" required pattern="[0-9]{7,}" id="price-until-search-byprice">
                             </div>
-                            <div><button class="btn btn-primary" type="submit">Buscar</button></div>
+                            <div><a class="btn btn-primary" id="btn-search-byprice">Buscar</a></div>
                         </form>
                         <table class="table text-center mt-3">
                             <thead>
@@ -106,15 +98,8 @@ session_start(['name'=>'SPM']);
                                 <th>Precio</th>
                                 <th>Teléfono del vendedor</th>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2016</td>
-                                    <td>Chevrolet</td>
-                                    <td>Rojo</td>
-                                    <td>Nuevo</td>
-                                    <td>25000000</td>
-                                    <td>0328356789</td>
-                                </tr>
+                            <tbody id="table-cars-by-price">
+                                <!-- Table Cars By Category -->
                             </tbody>
                         </table>
                     </div>

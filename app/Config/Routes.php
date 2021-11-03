@@ -56,6 +56,11 @@ $routes->post('/logout', 'LoginController::logout_controller');
 $routes->post('/val_car_repeat', 'IndexController::validate_car_repeat_controller');
 $routes->post('/insert-car', 'IndexController::insert_car_controller');
 $routes->get('/switch_rol', 'LoginController::switch_rol_controller');
+$routes->get('/edit-user', 'UserController::index');
+$routes->post('/update-user', 'UserController::update_user_controller');
+$routes->post('/read-cars-bycategory', 'IndexController::read_cars_bycategory_controller');
+$routes->post('/read-cars-byprice', 'IndexController::read_cars_price_controller');
+
 
 
 

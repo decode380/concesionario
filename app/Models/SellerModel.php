@@ -20,7 +20,7 @@ class SellerModel extends Model{
                 <tr>
                 <td>'.$row->vehplaca.'</td>
                 <td>'.$row->vehmodelo.'</td>
-                <td>'.$rescat[$row->catid-1].'</td>
+                <td>'.$rescat[$row->catid].'</td>
                 <td>'.$row->vehmarca.'</td>
                 <td>'.$row->vehcolor.'</td>
                 <td>'.$row->vehestado.'</td>
@@ -42,7 +42,7 @@ class SellerModel extends Model{
         $rescat = array();
 
         foreach($data as $index => $value){
-            $rescat[$index] = $value->catipo;
+            $rescat[$value->catid] = $value->catipo;
         }
 
         $con->close();

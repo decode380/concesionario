@@ -10,7 +10,7 @@ session_start(['name'=>'SPM']);
         <div class="header">
             <h1 class="header-text">Mis automoviles registrados</h1>
             <div>
-                <i class="fas fa-user-edit btn-edit-user"></i>
+                <a href="<?php echo base_url('edit-user');?>"><i class="fas fa-user-edit btn-edit-user"></i></a>
                 <i class="fas fa-sign-out-alt btn-logout"></i>
             </div>
         </div> <!--Header-->
