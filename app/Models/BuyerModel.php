@@ -22,12 +22,12 @@ class BuyerModel extends Model{
             if(isset($dataseller)){
                 $table .= '
                     <tr>
-                    <td>'.$row->vehmodelo.'</td>
                     <td>'.$row->vehmarca.'</td>
                     <td>'.$row->vehcolor.'</td>
+                    <td>'.$row->vehmodelo.'</td>
                     <td>'.$row->vehestado.'</td>
                     <td>'.$row->vehprecio.'</td>
-                    <td><a href="" onclick="event.preventDefault(); view_seller_data(\''.$dataseller->datnombre.'\',\''.$dataseller->datapellido.'\',\''.$dataseller->datelefono.'\');">Ver datos del vendedor</a></td>
+                    <td><a style="color:#ffff;" href="" onclick="event.preventDefault(); view_seller_data(\''.$dataseller->datnombre.'\',\''.$dataseller->datapellido.'\',\''.$dataseller->datelefono.'\');">Datos del vendedor</a></td>
                     </tr>
                 ';
             }
@@ -55,9 +55,9 @@ class BuyerModel extends Model{
             if(isset($dataseller)){
                 $table .= '
                     <tr>
-                    <td>'.$row->vehmodelo.'</td>
                     <td>'.$row->vehmarca.'</td>
                     <td>'.$row->vehcolor.'</td>
+                    <td>'.$row->vehmodelo.'</td>
                     <td>'.$row->vehestado.'</td>
                     <td>'.$row->vehprecio.'</td>
                     <td>'.$dataseller->datelefono.'</td>

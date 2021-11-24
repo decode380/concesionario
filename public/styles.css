@@ -1,16 +1,36 @@
 :root{
-    --primaryColor:#3383FF;
+    --primaryColor:#808080;
     --primaryText:#ffff;
     --primaryTextHover:#A4B1C6;
+    --hoverAndFocus:#121212;
+    --box-shadow:0 0 0 0.25rem rgb(18 18 18 / 25%);
+    --alert-color:#FF0000;
 }
 
-@font-face {
-    font-family: Oswald;
-    src: url(Oswald-Regular.ttf);
-}
+/* ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111111;
+  } */
 
 body{
-    font-family: Oswald;
+    background:#e6e6e6;
 }
 
 .header{
@@ -19,10 +39,33 @@ body{
     align-items: center;
 }
 
+.header li{
+    float: left;
+    padding: 10px;
+}
+
+.header ul{
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.header li{
+    text-decoration: none;
+    color: var(--primaryText);
+}
+
+.header li:hover{
+    background: var(--hoverAndFocus);
+}
+
 .header, .header-login{
     background: var(--primaryColor);
-    border-radius: 5px;
     padding: 10px;
+}
+
+.header{
+    padding: 0;
+    padding-right: 10px;
 }
 
 .header-login-text, .header-text{
@@ -35,14 +78,32 @@ body{
 }
 
 .form-login{
-    width: 500px;
+    width: 400px;
     margin: auto;
     padding: 20px;
 }
 
 .btn-primary{
     background: var(--primaryColor);
+    border: none;
 }
+
+.btn-primary:hover{
+    background:var(--hoverAndFocus);
+}
+
+.btn-primary:focus{
+    background-color: var(--hoverAndFocus);
+    border-color: var(--hoverAndFocus);
+    box-shadow: var(--box-shadow);
+}
+
+.form-control:focus{
+    border: none;
+    border-color:var(--hoverAndFocus);
+    box-shadow:var(--box-shadow) ;
+}
+
 
 .row2{
     display: flex;
@@ -50,13 +111,9 @@ body{
     margin-top: 10px;
 }
 
-.select-rol{
-    list-style: none;
-}
-
-.select-rol-selected{
-    color: var(--primaryTextHover);
+.selected-rol{
     pointer-events: none;
+    background: #373737;
 }
 
 .btn-logout, .btn-edit-user{
@@ -65,19 +122,10 @@ body{
 
 .btn-logout, .btn-edit-user{
     margin-left: 10px;
-    transition-duration: 300ms;
 }
 
 .btn-logout:hover, .btn-edit-user:hover{
-    color: var(--primaryTextHover);
-}
-
-.btn-logout{
-    font-size: 23px;
-}
-
-.btn-edit-user{
-    font-size: 19px;
+    color: var(--hoverAndFocus);
 }
 
 .form-two-columns{
@@ -85,5 +133,24 @@ body{
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
+}
 
+.label-alert{
+    /* display: none; */
+    color: var(--alert-color);
+}
+
+label{
+    display: block;
+}
+
+.alert-dialog-login, .alert-dialog-carrepeat, .alert-dialog-error-regcar{
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-close-alert{
+    font-size: 12px;
+    color: var(--alert-color);
 }

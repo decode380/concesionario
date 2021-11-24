@@ -1,5 +1,12 @@
 const action = $('#base-url').val();
 
+$('#btn-close-alert-login').click(function(){
+    document.getElementById("alert-dialog-login").style.display= "none";
+});
+$('.btn-close-alert-carrepat').click(function(){
+    document.getElementById("alert-dialog-carrepeat").style.display= "none";
+});
+
 $('.form-login').submit(function(e){
     e.preventDefault();
     
@@ -15,36 +22,23 @@ $('.form-login').submit(function(e){
             if(data == true){
                 $(location).attr('href',action+'/index');
             } else {
-                Swal.fire('Usuario o contraseña incorrecto');
+                document.getElementById("alert-dialog-login").style.display= "flex";
             }
         },
-
     });
 });
 
 $('.btn-logout').click(function(e){
     e.preventDefault();
+    $.ajax({
+        url:action+'/logout',
+        type:'POST',
+        dataType:'json',
+        success: function(){
+            $(location).attr('href',action);
+        },
 
-    Swal.fire({
-        title: '¿Cerrar sesión?',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si',
-        cancelButtonText:'No'
-      }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                url:action+'/logout',
-                type:'POST',
-                dataType:'json',
-                success: function(){
-                    $(location).attr('href',action);
-                },
-        
-            });
-        }
-      })
+    });
 });
 
 $('.form-insert-car-seller').submit(function(e){
@@ -64,7 +58,7 @@ $('.form-insert-car-seller').submit(function(e){
         data:{id:id},
         success: function(data){
             if(data){
-                Swal.fire('La placa ya se encuentra registrada');
+                document.getElementById("alert-dialog-carrepeat").style.display= "flex";
             } else {
                 $.ajax({
                     url:action+'/insert-car',
@@ -75,7 +69,6 @@ $('.form-insert-car-seller').submit(function(e){
                         if(data){
                             location.reload();
                         } else {
-                            Swal.fire('Ocurrió un error');
                         }
                     },
                 });
@@ -91,31 +84,19 @@ $('.form-update-user').submit(function(e){
     var phone = $('#update-user-phone').val();
     var email = $('#update-user-email').val();
 
-    Swal.fire({
-        title: '¿Actualizar datos?',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si',
-        cancelButtonText:'No'
-      }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                url:action+'/update-user',
-                type:'POST',
-                dataType:'json',
-                data:{firstname:firstname, lastname:lastname, phone:phone,email:email, },
-                success: function(data){
-                    if(data){
-                        $(location).attr('href',action+'/index');
-                    } else {
-                        Swal.fire('Ocurrió un error');
-                    }
-                },
-        
-            });
-        }
-    })
+    $.ajax({
+        url:action+'/update-user',
+        type:'POST',
+        dataType:'json',
+        data:{firstname:firstname, lastname:lastname, phone:phone,email:email, },
+        success: function(data){
+            if(data){
+                $(location).attr('href',action+'/index');
+            } else {
+            }
+        },
+
+    });
 });
 
 $('#btn-search-bycategory').click(function(e){
@@ -134,10 +115,7 @@ $('#btn-search-bycategory').click(function(e){
 });
 
 function view_seller_data(firstname, lastname, phone){
-    alert(`Datos del vendedor:\n
-    Nombre: `+ firstname +`\n
-    Apellido: `+ lastname +`\n
-    Teléfono: `+ phone);
+    alert(firstname + ' ' + lastname + ' - ' + phone);
 }
 
 $('.form-search-byprice').submit(function(e){
