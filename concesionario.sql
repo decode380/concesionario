@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2021 a las 03:39:24
+-- Tiempo de generación: 28-11-2021 a las 19:14:05
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -37,9 +37,9 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`catid`, `catipo`) VALUES
-(1, 'Camperos'),
-(2, 'Automoviles'),
-(3, 'Camionetas');
+(1, 'Campero'),
+(2, 'Automovil'),
+(3, 'Camioneta');
 
 -- --------------------------------------------------------
 
@@ -63,9 +63,9 @@ CREATE TABLE `datospersonales` (
 --
 
 INSERT INTO `datospersonales` (`datid`, `usuid`, `datnombre`, `datapellido`, `datipoid`, `datnumeroid`, `datelefono`, `datcorreo`) VALUES
-(1, 1, 'DamianUno', 'AlarconUno', 'Cedula de ciudadanía', '1001234567', '3212345678', 'email1@email.com'),
-(2, 2, 'DamianDos', 'AlarconDos', 'Cedula de ciudadanía', '1001234567', '3212345678', 'email2@email.com'),
-(3, 3, 'Damian3', 'Alarcon3', 'Cedula de ciudadanía', '1001234567', '3212345678', 'email@email.com');
+(1, 1, 'Vendedor Uno', 'Vendedor', 'Cedula de ciudadanía', '123456789', '321321321', 'vendedor@gmail.com'),
+(2, 2, 'Comprador Uno', 'Comprador', 'Cedula de ciudadanía', '123456789', '321321321', 'comprador@gmail.com'),
+(3, 3, 'Vendedor Dos', 'Vendedor y Comprador', 'Cedula de ciudadanía', '123456789', '321321321', 'vendedorycomprador@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -104,9 +104,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`usuid`, `usulogin`, `usupassword`) VALUES
-(1, 'usuario1', 'password1'),
-(2, 'usuario2', 'password2'),
-(3, 'usuario3', 'password3');
+(1, 'vendedor1', 'vendedor1'),
+(2, 'comprador1', 'comprador1'),
+(3, 'vendedor2', 'vendedor2');
 
 -- --------------------------------------------------------
 
@@ -124,9 +124,9 @@ CREATE TABLE `usuario_rol` (
 --
 
 INSERT INTO `usuario_rol` (`rolid`, `usuid`) VALUES
-(3, 1),
-(1, 2),
-(2, 3);
+(1, 1),
+(2, 2),
+(3, 3);
 
 -- --------------------------------------------------------
 
@@ -144,16 +144,6 @@ CREATE TABLE `vehiculo` (
   `vehprecio` int(11) NOT NULL,
   `vehcolor` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `vehiculo`
---
-
-INSERT INTO `vehiculo` (`vehplaca`, `datid`, `catid`, `vehmodelo`, `vehmarca`, `vehestado`, `vehprecio`, `vehcolor`) VALUES
-('PCL123', 1, 2, 2020, 'Aveo', 'Nuevo', 25000000, 'Amarillo'),
-('PCL456', 1, 1, 2012, 'Mazda', 'Usado', 18000000, 'Verde'),
-('PLC123', 1, 1, 2021, 'Chevrolet', 'Nuevo', 20000000, 'Rojo'),
-('PLC456', 1, 3, 2020, 'Renault', 'Usado', 10000000, 'Azul');
 
 --
 -- Índices para tablas volcadas
@@ -207,7 +197,7 @@ ALTER TABLE `vehiculo`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `catid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `catid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `datospersonales`
