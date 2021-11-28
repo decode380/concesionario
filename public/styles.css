@@ -7,59 +7,13 @@
     --alert-color:#FF0000;
 }
 
-/* ul {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover {
-    background-color: #111111;
-  } */
-
-body{
-    background:#e6e6e6;
-}
-
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header li{
-    float: left;
-    padding: 10px;
-}
-
-.header ul{
-    margin-bottom: 0;
-    list-style: none;
-}
-
-.header li{
-    text-decoration: none;
-    color: var(--primaryText);
-}
-
-.header li:hover{
-    background: var(--hoverAndFocus);
-}
-
 .header, .header-login{
-    background: var(--primaryColor);
     padding: 10px;
 }
 
@@ -68,40 +22,18 @@ body{
     padding-right: 10px;
 }
 
-.header-login-text, .header-text{
-    color: var(--primaryText);
-    font-size: 25px;
-}
-
 .header-text{
     display: inline-block;
+}
+
+.header-login-text{
+    color: #0d6efd;
 }
 
 .form-login{
     width: 400px;
     margin: auto;
     padding: 20px;
-}
-
-.btn-primary{
-    background: var(--primaryColor);
-    border: none;
-}
-
-.btn-primary:hover{
-    background:var(--hoverAndFocus);
-}
-
-.btn-primary:focus{
-    background-color: var(--hoverAndFocus);
-    border-color: var(--hoverAndFocus);
-    box-shadow: var(--box-shadow);
-}
-
-.form-control:focus{
-    border: none;
-    border-color:var(--hoverAndFocus);
-    box-shadow:var(--box-shadow) ;
 }
 
 
@@ -153,4 +85,10 @@ label{
 .btn-close-alert{
     font-size: 12px;
     color: var(--alert-color);
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }

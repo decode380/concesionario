@@ -6,30 +6,38 @@ session_start(['name'=>'SPM']);
 </head>
 <body>
     <input type="hidden" value="<?php echo $url;?>" id="base-url">
-    <div class="header mt-2">
-        <?php if($_SESSION['usurol'] == 3): ?>
-            <ul class="select-rol text-center">
-                <a href="<?php echo base_url("/switch_rol");?>"><li>Vendedor</li></a>
-                <a href=""><li  class="selected-rol">Comprador</li></a>
-            </ul>
-        <?php else:?>
-            <ul class="select-rol text-center">
-                <a href=""><li  class="selected-rol">Comprador</li></a>
-            </ul>
-        <?php endif;?>
-        <div>
-            <?php if($_SESSION['usurol'] == 3):?>
-                <a href="<?php echo base_url('edit-user');?>" class="btn-edit-user">Editar Usuario</a>
-            <?php endif;?>
-            <a class="btn-logout" href="">Cerrar Sesión</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand">Usuario Comprador</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <?php if($_SESSION['usurol'] == 3): ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Seleccionar rol
+                            </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="<?php echo base_url("/switch_rol");?>">Vendedor</a></li>
+                                    <li><a class="dropdown-item disabled">Comprador</a></li>
+                                </ul>
+                            </li>
+                    <?php endif;?>
+                </ul>
+                <div class="d-flex">
+                        <a href="<?php echo base_url('edit-user');?>" class="btn-edit-user">Editar usuario</a>
+                        <a href="" class="btn-logout">Salir</a>
+                </div>
+            </div>
         </div>
-    </div> <!--Header-->
+    </nav>
 
-    <div class="container mt-3">
-        <div class="card p-4">
-            <h5 class="text-center">Consultar según categoría</h5>
+    <div class="container-fluid mt-3 main">
+        <div class="p-3">
+            <h5 class="text-center">Consultar por categoría</h5>
             <form class="mt-3" action="">
-                <label>Seleccione la categoría por la cual desea consultar</label>
                 <select class="form-control form-control-sm mb-2" id="category-search-bycategory">
                     <?php foreach($categories as $index => $row):?>
                         <option value="<?php echo $index;?>"><?php echo $row;?></option>
@@ -37,14 +45,14 @@ session_start(['name'=>'SPM']);
                 </select>
                 <a id="btn-search-bycategory" class="btn btn-primary">Consultar</a>
             </form>
-            <table class="table table-striped table-dark text-center mt-3">
+            <table class="table mt-3">
                 <thead>
+                    <th>Modelo</th>
                     <th>Marca</th>
                     <th>Color</th>
-                    <th>Modelo</th>
                     <th>Estado</th>
                     <th>Precio</th>
-                    <th>Datos Vendedor</th>
+                    <th>Vendedor</th>
                 </thead>
                 <tbody id="table-cars-by-category">
                     <!-- Table Cars By Category -->
@@ -52,9 +60,8 @@ session_start(['name'=>'SPM']);
             </table>
         </div>
 
-        <div class="card p-4 mt-3">
-            <h5 class="modal-title text-center" id="modal-search-byprice-label">Consultar según el precio</h5>
-            <label>Indique en que rango de precio desea consultar</label>
+        <div class="p-3">
+            <h5 class="modal-title text-center" id="modal-search-byprice-label">Consultar por rango de precio</h5>
             <form class="form-search-byprice" action="">
                 <div class="form-group">
                     <label>Desde</label>
@@ -66,11 +73,11 @@ session_start(['name'=>'SPM']);
                 </div>
                 <div><button type="submit" class="btn btn-primary">Consultar</button></div>
             </form>
-            <table class="table table-striped table-dark text-center mt-3">
+            <table class="table mt-3">
                 <thead>
+                    <th>Modelo</th>
                     <th>Marca</th>
                     <th>Color</th>
-                    <th>Modelo</th>
                     <th>Estado</th>
                     <th>Precio</th>
                     <th>Teléfono del vendedor</th>

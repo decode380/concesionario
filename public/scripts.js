@@ -90,10 +90,7 @@ $('.form-update-user').submit(function(e){
         dataType:'json',
         data:{firstname:firstname, lastname:lastname, phone:phone,email:email, },
         success: function(data){
-            if(data){
                 $(location).attr('href',action+'/index');
-            } else {
-            }
         },
 
     });
